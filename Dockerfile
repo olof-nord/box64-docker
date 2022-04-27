@@ -1,4 +1,4 @@
-FROM arm64v8/debian:latest
+FROM riscv64/debian:sid
 
 RUN apt update && apt -y install git \
     build-essential \
@@ -7,7 +7,7 @@ RUN apt update && apt -y install git \
 
 RUN git clone https://github.com/ptitSeb/box64 && \
     cd box64/ && mkdir build && cd build && \
-    cmake .. -DARM_DYNAREC=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo && make -j$(nproc) && \
+    cmake .. -DRV64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo && make -j$(nproc) && \
     make install && \
     cd / && rm -rf /box64/ && \
     apt -y purge git build-essential cmake python3 && rm -rf /var/lib/apt/lists/*

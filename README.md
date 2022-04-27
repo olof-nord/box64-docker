@@ -1,5 +1,5 @@
 # box64-docker
-Simple Dockerfile to run 64-bit x86 binaries on ARMv8 CPUs within Docker using Box64.
+Simple Dockerfile to run 64-bit x86 binaries on RISC-v CPUs within Docker using Box64.
 
 ## Usage
 Create a new image using `box64-docker` as a baseline. For your `CMD` be sure to call `box64` and pass your binary to it.
